@@ -1,0 +1,9 @@
+# requirements.txt
+
+tensorflow
+opencv-python
+mtcnn
+keras-facenet
+numpy
+matplotlib
+scikit-learn
