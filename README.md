@@ -58,15 +58,12 @@ face-recognition-nao/
 │   ├── recognition.ipynb
 │   └── utils.ipynb
 │
-├── models/
-│   └── FaceNetclassification_model.h5
-│
-├── database/
-│   └── face_embeddings_database.json
-│
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+```
+
+---
 
 ## System Pipeline
 
@@ -104,6 +101,36 @@ The model input size is:
 
 ```python
 (160, 160, 3)
+```
+
+The FaceNet backbone is frozen during training and additional dense layers are added for classification.
+
+---
+
+## Recognition Pipeline
+
+The recognition system performs:
+
+1. Face detection using MTCNN
+2. Face alignment based on eye positions
+3. Embedding extraction using FaceNet
+4. Cosine similarity computation
+5. Identity matching with stored embeddings
+
+---
+
+## Embedding Database
+
+Face embeddings are stored in a JSON database for identity matching and recognition.
+
+Example:
+
+```json
+{
+  "Person_Name": [embedding_vector]
+}
+```
+
 ---
 
 ## NAO Robot Integration
@@ -159,6 +186,18 @@ Run the notebooks in the following order:
 - Real-time human–robot interaction
 - Improved database scalability
 - Real-time streaming inference
+
+---
+
+## Notes
+
+- The trained model weights (`.h5`) are not included in this repository due to file size limitations.
+
+- The dataset used for training and evaluation is not publicly distributed for privacy and confidentiality reasons.
+
+- Users can train the model using the provided notebooks and their own datasets.
+
+- Some paths in the notebooks originally referenced Google Drive environments and may require adaptation to local paths.
 
 ---
 
